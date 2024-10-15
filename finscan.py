@@ -10,7 +10,7 @@ def _scan(_ip, _prt, _wait, _time, abort_event):
     
     _alive +=1
     try:
-        # craft packet with all flags lit up
+        # craft fin packet
         response = sr1(IP(dst=_ip)/TCP(dport=int(_prt), flags="F"), timeout=int(_time), verbose=0) #flags=FPUSRAEC
         
         # check response
