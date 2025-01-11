@@ -22,7 +22,7 @@ def _scan(_ip, _prt, _wait, _time, abort_event):
         else:
             if response.haslayer(TCP):
                 # rst/ack captured
-                if response[TCP].flags == 0x14:
+                if response[TCP].flags == 0x04: #x14=Rst/Ack
                     print(f"[{_ip}:{_prt}]\t Closed")
                     _ports.remove(int(_prt))
             else:
